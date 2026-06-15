@@ -1,0 +1,55 @@
+# Codex platform metadata and dependency declarations
+# Read by OpenAI Codex. Other platforms (Claude Code, Cursor, etc.) ignore this file.
+
+interface:
+  display_name: "PKB Framework"
+  short_description: "Personal Knowledge Base — three-layer architecture with auto-summarization, smart linking, and adaptive mindset distillation"
+  brand_color: "#2563EB"
+
+policy:
+  allow_implicit_invocation: true
+
+dependencies:
+  tools:
+    - type: "cli"
+      value: "bash"
+      description: "Shell execution for scanning notes, running structural checks, and comparing file timestamps"
+    - type: "cli"
+      value: "find"
+      description: "Recursive file system traversal for detecting new, orphaned, and stale notes across raw/ categories"
+    - type: "cli"
+      value: "grep"
+      description: "Pattern matching for frontmatter field validation, link integrity checks, and source_path extraction"
+    - type: "cli"
+      value: "stat"
+      description: "File modification time comparison for staleness detection (supports both Linux stat -c and macOS stat -f)"
+    - type: "cli"
+      value: "comm"
+      description: "Set difference operations for detecting notes missing corresponding node summaries"
+    - type: "cli"
+      value: "sed"
+      description: "Stream editing for extracting frontmatter field values from YAML headers"
+    - type: "cli"
+      value: "tr"
+      description: "Character translation for path normalization, quote stripping, and cross-platform filename sanitization"
+    - type: "cli"
+      value: "sort"
+      description: "Sorting file lists for deterministic set comparison operations"
+    - type: "cli"
+      value: "mktemp"
+      description: "Creating secure temporary files for intermediate scan results (both Linux no-arg and macOS template forms)"
+    - type: "cli"
+      value: "date"
+      description: "Date formatting for mtime comparison on macOS fallback (date -r)"
+    - type: "cli"
+      value: "cut"
+      description: "Field extraction for parsing stat timestamp output"
+    - type: "cli"
+      value: "basename"
+      description: "Directory name extraction for category auto-discovery"
+    - type: "cli"
+      value: "realpath"
+      description: "Canonical path resolution for root directory detection (optional, cd+pwd fallback available)"
+    - type: "cli"
+      value: "readlink"
+      description: "Path resolution fallback for systems without realpath (optional, cd+pwd fallback available)"

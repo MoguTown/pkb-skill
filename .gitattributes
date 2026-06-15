@@ -1,0 +1,21 @@
+# Auto-detect text files and normalize line endings for cross-platform compatibility
+* text=auto
+
+# Markdown / YAML / JSON: always use LF in repo (Git auto-converts to CRLF on Windows checkout)
+*.md text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.json text eol=lf
+
+# Shell scripts: must be LF on all platforms
+*.sh text eol=lf
+
+# Binary files: no line-ending conversion
+*.png binary
+*.jpg binary
+*.gif binary
+*.skill binary
+*.zip binary
+
+# License: LF preferred
+LICENSE text eol=lf
