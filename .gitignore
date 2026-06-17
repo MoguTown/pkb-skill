@@ -27,3 +27,5 @@ node_modules/
 # Package files
 *.skill
 *.zip
+
+!pkb-framework-v2.1.skill
